@@ -1,6 +1,11 @@
 # scd1-to-nicotine
 
-A Python tool to extract your **SoulseekQT** buddy list and user notes from the proprietary `.scd1` binary format, and convert them into a plain-text config format so you can import easily into **Nicotine+**.
+A Python tool to extract your **SoulseekQt** buddy list and user notes from the "proprietary" `.scd1` binary format, and convert them into a plain-text config format so you can import easily into **Nicotine+**.
+
+**Nicotine+** has a lot of features that are not currently available in the official SoulseekQt client, including: 
+
+- Headless mode - `nicotine --headless` runs with no GUI. Useful for servers, NAS boxes, or Raspberry Pi setups that share files 24/7 without a desktop
+- Plugin system - extensible via Python plugins. Leech Detector is built in. Community plugins include detailed upload statistics, REST API control, and more
 
 ---
 
@@ -8,7 +13,9 @@ A Python tool to extract your **SoulseekQT** buddy list and user notes from the 
 
 If you've been on Soulseek for years, you know the deal. Your buddy list isn't just a list. It's a curated map of people you actually care about. A collection of great sharers, good friends, fellow musicians and travelers, people who put you onto music you never would have found, people you've chatted with at 2am about records nobody else cares about. 
 
-When you decide to move from the **SoulseekQT** client to **Nicotine+**, that list doesn't simply come with you. SoulseekQT stores everything in a closed binary `.scd1` file that is not documented to my knowledge. **Nicotine+** stores this same data in a clean, human-readable plain text config file. There's no official migration path.
+Nicotine+ is an open source Soulseek client, and it's actively maintained as well as cross-platform. But switching meant losing your entire buddy list unless you manually copied each user over one by one. That's a lot of friction.
+
+When you decide to move from the **SoulseekQt** client to **Nicotine+**, that list doesn't simply come with you. SoulseekQt stores everything in a closed binary `.scd1` file that is not documented to my knowledge. **Nicotine+** stores this same data in a clean, human-readable plain text config file. There's no official migration path.
 
 This tool attempts to help bridge that gap.
 
@@ -18,7 +25,7 @@ _(Curious about the `.scd1` format? See [A note on the `.scd1` format](#a-note-o
 
 ## What it does
 
-- Reads your `.scd1` file (SoulseekQT's data file)
+- Reads your `.scd1` file (SoulseekQt's data file)
 - Extracts your complete buddy list with usernames
 - Extracts any user notes you wrote
 - Outputs a `buddies.txt` (one username per line, with notes as comments)
@@ -74,13 +81,13 @@ Output files land in `scd1_extracted/` by default:
 
 ## Finding your `.scd1` file
 
-SoulseekQT's data file is typically located at:
+SoulseekQt's data file is typically located at:
 
 - **Windows:** `%APPDATA%\SoulseekQt\`
 - **Linux:** `~/.SoulseekQt/`
 - **Mac:** `~/Library/Application Support/SoulseekQt/`
 
-The filename will be whatever you named it when you exported from SoulseekQT.
+The filename will be whatever you named it when you exported from SoulseekQt.
 
 ---
 
@@ -107,12 +114,13 @@ If you figure out the root cause of this error, please feel free to open an issu
 
 - Python 3.8+
 - No external dependencies, standard library only
+- Tested with Nicotine+ 3.3.10 on Windows 11
 
 ---
 
 ## A note on the `.scd1` format
 
-The `.scd1` format is entirely undocumented and closed. It's a serialized binary object graph — essentially SoulseekQT's internal data structures written straight to disk, sequential index bytes and all. There's no spec, no reference implementation, nothing.
+The `.scd1` format is entirely undocumented and closed. It's a serialized binary object graph — essentially SoulseekQt's internal data structures written straight to disk, sequential index bytes and all. There's no spec, no reference implementation, nothing.
 
 This tool was built by reverse engineering the raw bytes: hex dumps, offset arithmetic, pointer tables, etc. 
 
