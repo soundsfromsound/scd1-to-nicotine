@@ -81,7 +81,9 @@ Output files land in `scd1_extracted/` by default:
 
 ## Finding your `.scd1` file
 
-SoulseekQt's data file is typically located at:
+<img src="img/soulseekqt_export_data_file_scd1.png" width="600">
+
+SoulseekQt's `.scd1` data file is typically located here after you export:
 
 - **Windows:** `%APPDATA%\SoulseekQt\`
 - **Linux:** `~/.SoulseekQt/`
