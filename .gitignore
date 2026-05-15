@@ -1,0 +1,14 @@
+# Ignore the output folder created by your script
+scd1_extracted/
+
+# Ignore Python's temporary "cache" files
+__pycache__/
+*.py[cod]
+
+# Ignore OS-specific junk
+.DS_Store
+Thumbs.db
+
+# Ignore any .scd1 files you are testing with 
+# (You usually don't want to upload the raw data files)
+*.scd1
