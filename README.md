@@ -34,6 +34,18 @@ _(Curious about the `.scd1` format? See [A note on the `.scd1` format](#a-note-o
 
 ---
 
+## Example Output
+
+**buddies.txt** - plain sorted list with inline notes
+
+<img src="sample/buddies_txt_sample.jpg" width="500">
+
+**nicotine_userlist.txt** - ready to paste into your Nicotine+ config
+
+<img src="sample/nicotine_userlist_sample.jpg" width="1000">
+
+---
+
 ## Usage
 
 **Basic extraction:**
