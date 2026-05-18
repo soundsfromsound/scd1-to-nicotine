@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-SCD1 Buddy List Extractor — v1.0
-Dynamically finds the user block in any SCD1 file by scanning for
+SCD1 Buddy List Extractor v1.0
+Dynamically finds the user block in any SoulseekQt .scd1 file by scanning for
 the known binary structure rather than using hardcoded offsets.
 
 Structure per entry:
@@ -188,7 +188,7 @@ def walk_user_block(data, start_offset, first_len):
       Format B: <username> <tag> \\x00\\x00\\x00 <uint32 next_len> <next username>
 
     Username is appended BEFORE reading next_len so the last entry
-    in a block is never lost even if next_len is garbage.
+    in a block is never lost even if next_len is garbage. (fixed)
     """
     pos = start_offset
     next_len = first_len
@@ -218,14 +218,14 @@ def walk_user_block(data, start_offset, first_len):
                 continue
             len_pos = sep_pos + 3
             if len_pos + 4 > n:
-                # No next length — append current and stop
+                # No next length - append current and stop
                 if is_plausible_username(username):
                     users.append((tag_byte, username))
                 return users
 
             next_len_val = struct.unpack_from("<I", data, len_pos)[0]
 
-            # Append current username before advancing
+            # Append current username BEFORE advancing
             if is_plausible_username(username):
                 users.append((tag_byte, username))
 
