@@ -120,7 +120,7 @@ copy "%APPDATA%\nicotine\config" "%USERPROFILE%\Desktop\nicotine_config_backup"
 python scd1_to_nicotine.py your_soulseek_data_file.scd1 --merge --config "%USERPROFILE%\Desktop\nicotine_config_backup"
 ```
 
-If you figure out the root cause of this error, please feel free to open an issue and let me know. Would love to get to the bottom of it.
+If you figure out the root cause of this error, please feel free to open an issue and let me know. Would love to get to the bottom of it. I've only seen this error myself two times so far but I'm curious what the cause could be. Thanks!
 
 ---
 
