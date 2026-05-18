@@ -134,7 +134,7 @@ If you figure out the root cause of this error, please feel free to open an issu
 
 ## A note on the `.scd1` format
 
-The `.scd1` format is entirely undocumented and closed. It's a serialized binary object graph — essentially SoulseekQt's internal data structures written straight to disk, sequential index bytes and all. There's no spec, no reference implementation, nothing.
+The `.scd1` format is entirely undocumented and closed. It's a serialized binary object graph which essentially is SoulseekQt's internal data structures written straight to disk, sequential index bytes and all. There's no spec, no reference implementation, nothing.
 
 This tool was built by reverse engineering the raw bytes: hex dumps, offset arithmetic, pointer tables, etc. 
 
